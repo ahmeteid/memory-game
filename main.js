@@ -61,9 +61,55 @@ function flipBlock(selectedBlock) {
     if(allFllippedBlock.length === 2) {
 
         // Stop clicking function
+        stopClicking();
 
         // Check matched block function
+        ckickMatchedBlocks(allFllippedBlock[0], allFllippedBlock[1]);
     }
+}
+
+// stop clicking function
+function stopClicking() {
+
+    // Add class no clicking on Main container
+    blocksContainer.classList.add("no-clicking");
+
+    setTimeout(() => {
+
+        // Remove class no clicking after the duration
+        blocksContainer.classList.remove("no-clicking");
+    }, duration);
+
+}
+
+// Check matched block function
+function ckickMatchedBlocks(firstBlock, secondBlock) {
+
+    let triesElement = document.querySelector(".tries span");
+
+    //
+    if (firstBlock.dataset.technology === secondBlock.dataset.technology) {
+
+        firstBlock.classList.remove("is-flipped");
+        secondBlock.classList.remove("is-flipped");
+
+
+        firstBlock.classList.add("has-match");
+        secondBlock.classList.add("has-match");
+
+    } else {
+
+        triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
+
+
+        setTimeout(() => {
+
+            firstBlock.classList.remove("is-flipped");
+            secondBlock.classList.remove("is-flipped");
+
+        }, duration);
+    }
+
 }
 
 // Shuffle Function
