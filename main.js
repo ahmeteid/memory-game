@@ -30,4 +30,41 @@ let blocks = Array.from(blocksContainer.children);
 
 let orderRange = [...Array(blocks.length).keys()];
 
-console.log(orderRange);
+shuffle(orderRange);
+
+// =
+// let orderRange = Array.from(Array(blocks.length).keys());
+
+// Add order Css property to game blocks
+blocks.forEach((block, index) => {
+    block.style.order = orderRange[index];
+});
+
+// Shuffle Function
+function shuffle(array) {
+
+    // Settings Vars
+    let current = array.length;
+    let random;
+    let temp;
+
+    while(current > 0) {
+
+        // Get random Number
+        random = Math.floor(Math.random() * current);
+
+        // Decrease length by one 
+        current--;
+
+        // [1] Save current element in stash
+        temp = array[current];
+
+        // [2] Current element = Random element
+        array[current] = array[random];
+
+        // [3] Random element = Get element from Stash
+        array[random] = temp;
+    }
+
+    return array;
+}
