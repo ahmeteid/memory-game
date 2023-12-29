@@ -38,7 +38,33 @@ shuffle(orderRange);
 // Add order Css property to game blocks
 blocks.forEach((block, index) => {
     block.style.order = orderRange[index];
+
+    // Add click event 
+    block.addEventListener("click", function() {
+
+        // Tregger the flip block element
+        flipBlock(block);
+
+    });
 });
+
+// Flip Block Function
+function flipBlock(selectedBlock) {
+
+    // Add class is-flipped
+    selectedBlock.classList.add("is-flipped");
+
+    // Collect all flipped cards
+    let allFllippedBlock = blocks.filter(flippedBlock => flippedBlock.classList.contains("is-flipped"));
+
+    // If theres two selected Blocks
+    if(allFllippedBlock.length === 2) {
+
+        // Stop clicking function
+
+        // Check matched block function
+    }
+}
 
 // Shuffle Function
 function shuffle(array) {
