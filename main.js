@@ -21,3 +21,13 @@ document.querySelector(".control-buttons span").onclick = function() {
     // Remove splash screen
     document.querySelector(".control-buttons").remove();
 };
+
+let duration = 1000;
+
+let blocksContainer = document.querySelector(".memory-game-blocks");
+
+let blocks = Array.from(blocksContainer.children);
+
+let orderRange = [...Array(blocks.length).keys()];
+
+console.log(orderRange);
