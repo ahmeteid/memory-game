@@ -97,6 +97,8 @@ function ckickMatchedBlocks(firstBlock, secondBlock) {
         firstBlock.classList.add("has-match");
         secondBlock.classList.add("has-match");
 
+        document.getElementById("success").play();
+
     } else {
 
         triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
@@ -108,6 +110,8 @@ function ckickMatchedBlocks(firstBlock, secondBlock) {
             secondBlock.classList.remove("is-flipped");
 
         }, duration);
+
+        document.getElementById("fail").play();
     }
 
 }
